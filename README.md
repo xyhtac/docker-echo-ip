@@ -11,14 +11,27 @@ It supports optional static Bearer token authentication and reverse-proxy IP det
 
 **No npm dependencies required.** Uses only Node.js built-in modules.
 
+# docker-echo-ip
+
+A lightweight, self-hosted public IP detection service built with Node.js.
+
+The service provides two HTTP endpoints for retrieving the public IP address of the requesting client:
+
+- `/myip` — returns the detected IP address as plain text.
+- `/json` — returns a structured JSON response with detection status, IP address, and proxy header information.
+
+It supports optional static Bearer token authentication and reverse-proxy IP detection.
+
+**No npm dependencies required.** Uses only Node.js built-in modules.
+
 ## TL;DR
 
 ### Quick start with Docker
 
-Build the image:
+Pull the latest image:
 
 ```bash
-docker build -t docker-echo-ip:1.0 .
+docker pull ghcr.io/xyhtac/docker-echo-ip:latest
 ```
 
 Generate an API token if authentication is required:
@@ -37,7 +50,7 @@ docker run -d \
   -e API_TOKEN="YOUR_SECRET_TOKEN" \
   -e PORT=8080 \
   -e TRUST_PROXY=true \
-  docker-echo-ip:1.0
+  ghcr.io/xyhtac/docker-echo-ip:latest
 ```
 
 To allow anonymous requests, simply omit `API_TOKEN`:
@@ -49,7 +62,7 @@ docker run -d \
   -p 127.0.0.1:8080:8080 \
   -e PORT=8080 \
   -e TRUST_PROXY=true \
-  docker-echo-ip:1.0
+  ghcr.io/xyhtac/docker-echo-ip:latest
 ```
 
 Configure your HTTPS reverse proxy to forward requests to `127.0.0.1:8080`, setting `X-Real-IP` to the actual client address.
@@ -69,6 +82,8 @@ curl -H "Authorization: Bearer YOUR_SECRET_TOKEN" \
 ```
 
 If authentication is disabled, omit the Authorization header.
+
+
 
 ## Features
 
