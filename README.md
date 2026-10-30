@@ -11,19 +11,6 @@ It supports optional static Bearer token authentication and reverse-proxy IP det
 
 **No npm dependencies required.** Uses only Node.js built-in modules.
 
-# docker-echo-ip
-
-A lightweight, self-hosted public IP detection service built with Node.js.
-
-The service provides two HTTP endpoints for retrieving the public IP address of the requesting client:
-
-- `/myip` — returns the detected IP address as plain text.
-- `/json` — returns a structured JSON response with detection status, IP address, and proxy header information.
-
-It supports optional static Bearer token authentication and reverse-proxy IP detection.
-
-**No npm dependencies required.** Uses only Node.js built-in modules.
-
 ## TL;DR
 
 ### Quick start with Docker
