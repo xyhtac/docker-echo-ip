@@ -10,6 +10,6 @@ COPY index.js .
 
 USER node
 
-EXPOSE 8080
+# EXPOSE 8080
 
 CMD ["node", "index.js"]
