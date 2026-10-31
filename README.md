@@ -18,7 +18,7 @@ It supports optional static Bearer token authentication and reverse-proxy IP det
 Pull the latest image:
 
 ```bash
-docker pull ghcr.io/xyhtac/docker-echo-ip:latest
+docker pull ghcr.io/xyhtac/docker-echo-ip:latest 
 ```
 
 Generate an API token if authentication is required:
