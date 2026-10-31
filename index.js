@@ -2,7 +2,7 @@
 
 const http = require("node:http");
 const net = require("node:net");
-const verbose = true;
+const verbose = false;
 const { timingSafeEqual } = require("node:crypto");
 
 const HOST = process.env.HOST || "0.0.0.0";
@@ -22,13 +22,8 @@ function authorized(header) {
   if (verbose) console.log(header);
   if (!header || !header.startsWith("Bearer ")) return false;
 
-
-
   const supplied = Buffer.from(header.slice(7));
   const expected = Buffer.from(API_TOKEN);
-
-  if (verbose) console.log(supplied);
-  if (verbose) console.log(expected);
 
   return supplied.length === expected.length &&
     timingSafeEqual(supplied, expected);
